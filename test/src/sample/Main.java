@@ -31,6 +31,8 @@ public class Main<T> implements LimitedSet<T> {
         main.contains(7);
         main.contains(8);
         main.contains(9);
+        main.contains(9);
+        main.contains(9);
 
         main.contains(10);
         main.contains(10);
@@ -49,7 +51,9 @@ public class Main<T> implements LimitedSet<T> {
 
     @Override
     public void add(T t) {
-        if (map.size() >= LIMIT_BOUNDARY) {
+        if (map.containsKey(t)) {
+            return;
+        } else if (map.size() >= LIMIT_BOUNDARY) {
             Integer min = Collections.min(map.values());
             T keyForRemove = null;
 
@@ -60,12 +64,11 @@ public class Main<T> implements LimitedSet<T> {
             }
 
 
-            map.remove(keyForRemove);
+                map.remove(keyForRemove);
+
         }
 
-        if (!map.containsKey(t)) {
             map.put(t, 0);
-        }
     }
 
     @Override
