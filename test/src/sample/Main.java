@@ -31,22 +31,16 @@ public class Main<T> implements LimitedSet<T> {
         main.contains(7);
         main.contains(8);
         main.contains(9);
-        main.contains(10);
 
-        main.contains(1);
-        main.contains(2);
-        main.contains(3);
-        main.contains(4);
-        main.contains(5);
-        main.contains(6);
-        main.contains(7);
-        main.contains(8);
-        main.contains(9);
         main.contains(10);
-
+        main.contains(10);
+        main.contains(10);
+        main.contains(10);
+        main.contains(10);
 
         main.add(10);
-        main.remove(11);
+        main.add(9);
+        main.add(11);
 
 
         System.out.println(main.map);
@@ -69,7 +63,9 @@ public class Main<T> implements LimitedSet<T> {
             map.remove(keyForRemove);
         }
 
-        map.put(t, 0);
+        if (!map.containsKey(t)) {
+            map.put(t, 0);
+        }
     }
 
     @Override
